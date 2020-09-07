@@ -23,6 +23,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_P1": return incrementP1(state);
     case "INCREMENT_P2": return incrementP2(state);
+    case "RESET": return initial;
     default: return state;
   }
 };
@@ -45,6 +46,7 @@ const render = () => {
         handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" })}
         scoreP2={ state.player2 }
         handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" })}
+        handleReset={ () => store.dispatch({ type: "RESET" })}
       />
     </React.StrictMode>,
     document.getElementById('root')

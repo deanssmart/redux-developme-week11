@@ -1,6 +1,12 @@
 import React from "react";
 
-const App = ({ scoreP1, handleIncrementP1, scoreP2, handleIncrementP2 }) => (
+const App = ({ 
+    scoreP1,
+    handleIncrementP1,
+    scoreP2, 
+    handleIncrementP2,
+    handleReset,
+}) => (
     <React.Fragment>
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
@@ -50,7 +56,12 @@ const App = ({ scoreP1, handleIncrementP1, scoreP2, handleIncrementP2 }) => (
         <hr />
 
         { /* reset button */}
-        <button className="btn btn-danger">Reset</button>
+        <button 
+          className="btn btn-danger"
+          onClick={ handleReset }
+        >
+          Reset
+        </button>
     </React.Fragment>
 );
 
