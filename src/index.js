@@ -9,28 +9,37 @@ import { createStore } from 'redux';
 const initial = {
   player1: 0,
   player2: 0,
-  serving: true,
+  player1Serving: true,
+  winner: 0,
 };
+
 
 const server = (state) => {
   return { 
     ...state, 
-    serving: (state.player1 + state.player2) % 5 === 0 ? !state.serving : state.serving
+    player1Serving: (state.player1 + state.player2) % 5 === 0 ? !state.player1Serving : state.player1Serving
   }
 }
 
-const incrementP1 = (state) => {
-  return { ...state, player1: state.player1 + 1 };
+const score = (state, { player }) => {
+  return { 
+    ...state, 
+    [player]: state[player] + 1, 
+  };
 }
 
-const incrementP2 = (state) => {
-  return { ...state, player2: state.player2 + 1 };
+const winner = (state) => {
+  return {
+    ...state,
+    winner: state.player1 >= 21 ? 1 : (state.player2 >= 21 ? 2 : 0)
+    
+  }
+
 }
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "INCREMENT_P1": return server(incrementP1(state));
-    case "INCREMENT_P2": return server(incrementP2(state));
+    case "SCORE": return winner(server(score(state, action)));
     case "RESET": return initial;
     default: return state;
   }
@@ -51,11 +60,12 @@ const render = () => {
     <React.StrictMode>
       <App
         scoreP1={ state.player1 }
-        handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" })}
+        handleP1={ () => store.dispatch({ type: "SCORE", player: "player1" })}
         scoreP2={ state.player2 }
-        handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" })}
+        handleP2={ () => store.dispatch({ type: "SCORE", player: "player2" })}
         handleReset={ () => store.dispatch({ type: "RESET" })}
-        serving={ state.serving }
+        player1Serving={ state.player1Serving }
+        winner={ state.winner }
       />
     </React.StrictMode>,
     document.getElementById('root')

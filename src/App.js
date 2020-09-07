@@ -2,11 +2,12 @@ import React from "react";
 
 const App = ({ 
     scoreP1,
-    handleIncrementP1,
+    handleP1,
     scoreP2, 
-    handleIncrementP2,
+    handleP2,
     handleReset,
-    serving,
+    player1Serving,
+    winner,
 }) => (
     <React.Fragment>
         {/* header */}
@@ -17,7 +18,7 @@ const App = ({
         {/* scores */}
         <div className="row mb-4">
             <div className="col-md-6 mt-4">
-                <div className={ serving ? "card text-center bg-dark text-white" : "card text-center" }>
+                <div className={ "card text-center" + (player1Serving ? " bg-dark text-white" : "") }>
                     <h5 className="card-header">Player 1</h5>
                     <div className="card-body">
                         <p className="card-text display-1">{ scoreP1 }</p>
@@ -25,7 +26,7 @@ const App = ({
                     <div className="card-footer">
                         <button 
                           className="form-control btn btn-success"
-                          onClick={ handleIncrementP1 }
+                          onClick={ handleP1 }
                         >
                           +
                         </button>
@@ -34,7 +35,7 @@ const App = ({
             </div>
 
             <div className="col-md-6 mt-4">
-                <div className={ !serving ? "card text-center bg-dark text-white" : "card text-center" }>
+                <div className={ "card text-center" + (!player1Serving ? " bg-dark text-white" : "") }>
                     <h5 className="card-header">Player 2</h5>
                     <div className="card-body">
                         <p className="card-text display-1">{ scoreP2 }</p>
@@ -42,7 +43,7 @@ const App = ({
                     <div className="card-footer">
                         <button 
                           className="form-control btn btn-success"
-                          onClick={ handleIncrementP2 }
+                          onClick={ handleP2 }
                         >
                           +
                         </button>
@@ -52,8 +53,9 @@ const App = ({
         </div>
 
         { /* winner message */}
-        <h2 className="alert alert-success">Player {/* winning player here */} wins!</h2>
-
+        {winner === 0 ? null : 
+        <h2 className="alert alert-success">Player { winner } wins!</h2>
+        }
         <hr />
 
         { /* reset button */}
