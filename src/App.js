@@ -6,6 +6,7 @@ const App = ({
     scoreP2, 
     handleIncrementP2,
     handleReset,
+    serving,
 }) => (
     <React.Fragment>
         {/* header */}
@@ -16,7 +17,7 @@ const App = ({
         {/* scores */}
         <div className="row mb-4">
             <div className="col-md-6 mt-4">
-                <div className="card text-center bg-dark text-white">
+                <div className={ serving ? "card text-center bg-dark text-white" : "card text-center" }>
                     <h5 className="card-header">Player 1</h5>
                     <div className="card-body">
                         <p className="card-text display-1">{ scoreP1 }</p>
@@ -33,7 +34,7 @@ const App = ({
             </div>
 
             <div className="col-md-6 mt-4">
-                <div className="card text-center">
+                <div className={ !serving ? "card text-center bg-dark text-white" : "card text-center" }>
                     <h5 className="card-header">Player 2</h5>
                     <div className="card-body">
                         <p className="card-text display-1">{ scoreP2 }</p>

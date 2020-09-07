@@ -9,7 +9,15 @@ import { createStore } from 'redux';
 const initial = {
   player1: 0,
   player2: 0,
+  serving: true,
 };
+
+const server = (state) => {
+  return { 
+    ...state, 
+    serving: (state.player1 + state.player2) % 5 === 0 ? !state.serving : state.serving
+  }
+}
 
 const incrementP1 = (state) => {
   return { ...state, player1: state.player1 + 1 };
@@ -21,8 +29,8 @@ const incrementP2 = (state) => {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "INCREMENT_P1": return incrementP1(state);
-    case "INCREMENT_P2": return incrementP2(state);
+    case "INCREMENT_P1": return server(incrementP1(state));
+    case "INCREMENT_P2": return server(incrementP2(state));
     case "RESET": return initial;
     default: return state;
   }
@@ -47,6 +55,7 @@ const render = () => {
         scoreP2={ state.player2 }
         handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" })}
         handleReset={ () => store.dispatch({ type: "RESET" })}
+        serving={ state.serving }
       />
     </React.StrictMode>,
     document.getElementById('root')
