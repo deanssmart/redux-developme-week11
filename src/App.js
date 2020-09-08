@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/Header'
 import ScoreCard from './components/ScoreCard';
 import Button from './components/Button';
-import Alert from './components/alert';
+import Alert from './components/Alert';
 
 
 const App = ({ 

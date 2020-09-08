@@ -30,7 +30,8 @@ const score = (state, { player }) => {
 const winner = (state) => {
   return {
     ...state,
-    winner: state.player1 >= 21 ? 1 : (state.player2 >= 21 ? 2 : 0)    
+    winner: 
+      state.player1 >= 21 && state.player1 - state.player2 >= 2 ? 1 : (state.player2 >= 21 && state.player2 - state.player1 >= 2 ? 2 : 0)    
   }
 };
 
