@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 const initial = {
   player1: 0,
@@ -63,10 +64,10 @@ const store = createStore(
   && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
-const render = () => {
-  let state = store.getState();
+let state = store.getState();
 
-  ReactDOM.render(
+ReactDOM.render(
+  <Provider store={ store }>
     <React.StrictMode>
       <App
         scoreP1={ state.player1 }
@@ -77,16 +78,10 @@ const render = () => {
         player1Serving={ state.player1Serving }
         winner={ state.winner }
       />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-  
-}
-
-store.subscribe(render);
-render();
-
-
+    </React.StrictMode>
+  </Provider>,
+  document.getElementById('root'),
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

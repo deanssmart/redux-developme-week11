@@ -3,6 +3,7 @@ import Header from './components/Header'
 import ScoreCard from './components/ScoreCard';
 import Button from './components/Button';
 import Alert from './components/Alert';
+import Table from './components/Table';
 
 
 const App = ({ 
@@ -44,6 +45,19 @@ const App = ({
         buttonClass="btn btn-danger"
         handleClick={ handleReset }
         disable={ false }
+      />
+
+      <hr />
+
+      <Table
+        columnHeader1="Player 1"
+        columnHeader2="Player2"
+        rowHeader1="Won"
+        row1Data1="1"
+        row1Data2="21"
+        rowHeader2="Score"
+        row2Data1="5"
+        row2Data2="12"
       />
 
     </>
