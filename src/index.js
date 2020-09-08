@@ -16,7 +16,7 @@ const initial = {
 const server = (state) => {
   return { 
     ...state, 
-    player1Serving: (state.player1 + state.player2) % 5 === 0 ? !state.player1Serving : state.player1Serving
+    player1Serving: (state.player1 >= 20 && state.player2 >= 20) ? !state.player1Serving : (state.player1 + state.player2) % 5 === 0 ? !state.player1Serving : state.player1Serving
   }
 };
 
