@@ -27,6 +27,7 @@ const App = ({
                         <button 
                           className="form-control btn btn-success"
                           onClick={ handleP1 }
+                          disabled={ winner !== 0 }                          
                         >
                           +
                         </button>
@@ -44,6 +45,7 @@ const App = ({
                         <button 
                           className="form-control btn btn-success"
                           onClick={ handleP2 }
+                          disabled={ winner !== 0 }  
                         >
                           +
                         </button>

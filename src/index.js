@@ -13,29 +13,26 @@ const initial = {
   winner: 0,
 };
 
-
 const server = (state) => {
   return { 
     ...state, 
     player1Serving: (state.player1 + state.player2) % 5 === 0 ? !state.player1Serving : state.player1Serving
   }
-}
+};
 
 const score = (state, { player }) => {
   return { 
     ...state, 
     [player]: state[player] + 1, 
-  };
-}
+  }
+};
 
 const winner = (state) => {
   return {
     ...state,
-    winner: state.player1 >= 21 ? 1 : (state.player2 >= 21 ? 2 : 0)
-    
+    winner: state.player1 >= 21 ? 1 : (state.player2 >= 21 ? 2 : 0)    
   }
-
-}
+};
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -51,7 +48,6 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__
   && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
-
 
 const render = () => {
   let state = store.getState();
