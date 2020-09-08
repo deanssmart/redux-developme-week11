@@ -1,4 +1,9 @@
-import React from "react";
+import React from 'react';
+import Header from './components/Header'
+import ScoreCard from './components/ScoreCard';
+import Button from './components/Button';
+import Alert from './components/alert';
+
 
 const App = ({ 
     scoreP1,
@@ -9,65 +14,39 @@ const App = ({
     player1Serving,
     winner,
 }) => (
-    <React.Fragment>
-        {/* header */}
-        <header className="jumbotron mt-4 mb-0">
-            <h1>PongPing</h1>
-        </header>
+    <>
+      <Header />
 
-        {/* scores */}
-        <div className="row mb-4">
-            <div className="col-md-6 mt-4">
-                <div className={ "card text-center" + (player1Serving ? " bg-dark text-white" : "") }>
-                    <h5 className="card-header">Player 1</h5>
-                    <div className="card-body">
-                        <p className="card-text display-1">{ scoreP1 }</p>
-                    </div>
-                    <div className="card-footer">
-                        <button 
-                          className="form-control btn btn-success"
-                          onClick={ handleP1 }
-                          disabled={ winner !== 0 }                          
-                        >
-                          +
-                        </button>
-                    </div>
-                </div>
-            </div>
+      <div className="row mb-4">
+        <ScoreCard 
+          player="Player 1" 
+          serving={ player1Serving }          
+          score={ scoreP1 }
+          handlePlayer={ handleP1 }
+          winner={ winner }
+        />
 
-            <div className="col-md-6 mt-4">
-                <div className={ "card text-center" + (!player1Serving ? " bg-dark text-white" : "") }>
-                    <h5 className="card-header">Player 2</h5>
-                    <div className="card-body">
-                        <p className="card-text display-1">{ scoreP2 }</p>
-                    </div>
-                    <div className="card-footer">
-                        <button 
-                          className="form-control btn btn-success"
-                          onClick={ handleP2 }
-                          disabled={ winner !== 0 }  
-                        >
-                          +
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ScoreCard 
+          player="Player 2"
+          serving={ !player1Serving }
+          score={ scoreP2 }
+          handlePlayer={ handleP2 }
+          winner={ winner }
+        />
+      </div>
 
-        { /* winner message */}
-        {winner === 0 ? null : 
-        <h2 className="alert alert-success">Player { winner } wins!</h2>
-        }
-        <hr />
+      <Alert winner={ winner } />
 
-        { /* reset button */}
-        <button 
-          className="btn btn-danger"
-          onClick={ handleReset }
-        >
-          Reset
-        </button>
-    </React.Fragment>
+      <hr />
+
+      <Button
+        label="Reset"
+        buttonClass="btn btn-danger"
+        handleClick={ handleReset }
+        disable={ false }
+      />
+
+    </>
 );
 
 export default App;
