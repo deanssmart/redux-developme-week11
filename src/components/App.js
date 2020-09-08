@@ -1,9 +1,10 @@
 import React from 'react';
-import Header from './components/Header'
-import ScoreCard from './components/ScoreCard';
-import Button from './components/Button';
-import Alert from './components/Alert';
-import Table from './components/Table';
+import Header from './Header'
+import ScoreCard1 from './ScoreCard/ScoreCard1';
+import ScoreCard2 from './ScoreCard/ScoreCard2';
+import Button from './Button';
+import Alert from './Alert';
+import Table from './Table';
 
 
 const App = ({ 
@@ -19,18 +20,14 @@ const App = ({
       <Header />
 
       <div className="row mb-4">
-        <ScoreCard 
+        <ScoreCard1 
           player="Player 1" 
-          serving={ player1Serving }          
-          score={ scoreP1 }
           handlePlayer={ handleP1 }
           winner={ winner }
         />
 
-        <ScoreCard 
+        <ScoreCard2 
           player="Player 2"
-          serving={ !player1Serving }
-          score={ scoreP2 }
           handlePlayer={ handleP2 }
           winner={ winner }
         />

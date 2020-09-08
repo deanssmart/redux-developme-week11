@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button'
+import Button from '../Button'
 
 const ScoreCard = ({
     player,
@@ -27,4 +27,3 @@ const ScoreCard = ({
 );
 
 export default ScoreCard;
-
