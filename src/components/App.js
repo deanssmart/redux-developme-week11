@@ -3,7 +3,7 @@ import Header from './Header'
 import ScoreCard1 from './ScoreCard/ScoreCard1';
 import ScoreCard2 from './ScoreCard/ScoreCard2';
 import Button from './Button';
-import Alert from './Alert';
+import Alert from './Alert/index';
 import Table from './Table';
 
 
@@ -23,17 +23,15 @@ const App = ({
         <ScoreCard1 
           player="Player 1" 
           handlePlayer={ handleP1 }
-          winner={ winner }
         />
 
         <ScoreCard2 
           player="Player 2"
           handlePlayer={ handleP2 }
-          winner={ winner }
         />
       </div>
 
-      <Alert winner={ winner } />
+      <Alert />
 
       <hr />
 

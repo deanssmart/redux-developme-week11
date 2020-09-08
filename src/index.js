@@ -14,7 +14,6 @@ ReactDOM.render(
         handleP1={ () => store.dispatch({ type: "SCORE", player: "player1" })}
         handleP2={ () => store.dispatch({ type: "SCORE", player: "player2" })}
         handleReset={ () => store.dispatch({ type: "RESET" })}
-        winner={ state.winner }
       />
     </React.StrictMode>
   </Provider>,
