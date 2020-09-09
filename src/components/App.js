@@ -29,10 +29,7 @@ const App = ({
 
       <hr />
 
-      <ResetButton
-        label="Reset"
-        buttonClass="btn btn-danger"
-      />
+      <ResetButton buttonClass="btn btn-danger"/>
 
       <hr />
 

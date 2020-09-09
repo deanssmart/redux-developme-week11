@@ -8,9 +8,7 @@ import { Provider } from 'react-redux';
 ReactDOM.render(
   <Provider store={ store }>
     <React.StrictMode>
-      <App
-        handleReset={ () => store.dispatch({ type: "RESET" })}
-      />
+      <App />
     </React.StrictMode>
   </Provider>,
   document.getElementById('root'),
