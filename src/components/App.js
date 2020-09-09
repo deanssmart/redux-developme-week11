@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header'
 import ScoreCard1 from './ScoreCard/ScoreCard1';
 import ScoreCard2 from './ScoreCard/ScoreCard2';
-import Button from './Button';
+import ResetButton from './Buttons/ResetButton';
 import Alert from './Alert';
 import Table from './Table';
 
@@ -29,11 +29,9 @@ const App = ({
 
       <hr />
 
-      <Button
+      <ResetButton
         label="Reset"
         buttonClass="btn btn-danger"
-        handleClick={ handleReset }
-        disable={ false }
       />
 
       <hr />

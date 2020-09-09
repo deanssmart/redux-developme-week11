@@ -15,4 +15,9 @@ const Button = ({
         </button>
 );
 
+Button.defaultProps = {
+    disable: false,
+};
+
+
 export default Button;
