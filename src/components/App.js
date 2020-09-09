@@ -21,15 +21,8 @@ const App = ({
       <Header />
 
       <div className="row mb-4">
-        <ScoreCard1 
-          player="Player 1" 
-          handlePlayer={ handleP1 }
-        />
-
-        <ScoreCard2 
-          player="Player 2"
-          handlePlayer={ handleP2 }
-        />
+        <ScoreCard1 />
+        <ScoreCard2 />
       </div>
 
       <Alert />

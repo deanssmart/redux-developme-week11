@@ -9,8 +9,6 @@ ReactDOM.render(
   <Provider store={ store }>
     <React.StrictMode>
       <App
-        handleP1={ () => store.dispatch({ type: "SCORE", player: "player1" })}
-        handleP2={ () => store.dispatch({ type: "SCORE", player: "player2" })}
         handleReset={ () => store.dispatch({ type: "RESET" })}
       />
     </React.StrictMode>
