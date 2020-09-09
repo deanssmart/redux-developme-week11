@@ -13,7 +13,7 @@ const Table = ({
                 </tr>
             </thead>
             <tbody>
-                { history.map((item, i) => (
+                { history.length === 0 ? <td colspan="4" className="text-center">No Games Played</td> : history.map((item, i) => (
                     <tr key={ i }>
                        <td>
                            { i + 1 }
@@ -21,10 +21,10 @@ const Table = ({
                         <td>
                            { item.player_1.won ? "Player 1" : "Player 2" }
                         </td>
-                        <td>
+                        <td className={ item.player_1.score > item.player_2.score ? "table-success" : "table-danger"}>
                            { item.player_1.score }
                         </td>
-                        <td>
+                        <td className={ item.player_2.score > item.player_1.score ? "table-success" : "table-danger"}>
                            { item.player_2.score }
                         </td>              
                     </tr>   
