@@ -3,7 +3,7 @@ import React from 'react';
 const Table = ({
     history,        
 }) => (
-        <table className="table table-bordered">
+        <table className="table table-bordered table-striped">
             <thead className="thead-dark">
                 <tr >
                     <th>Game #</th>
