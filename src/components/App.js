@@ -3,7 +3,7 @@ import Header from './Header'
 import ScoreCard1 from './ScoreCard/ScoreCard1';
 import ScoreCard2 from './ScoreCard/ScoreCard2';
 import Button from './Button';
-import Alert from './Alert/index';
+import Alert from './Alert';
 import Table from './Table';
 
 
@@ -15,6 +15,7 @@ const App = ({
     handleReset,
     player1Serving,
     winner,
+    p1Score,
 }) => (
     <>
       <Header />
@@ -44,16 +45,7 @@ const App = ({
 
       <hr />
 
-      <Table
-        columnHeader1="Player 1"
-        columnHeader2="Player2"
-        rowHeader1="Won"
-        row1Data1="1"
-        row1Data2="21"
-        rowHeader2="Score"
-        row2Data1="5"
-        row2Data2="12"
-      />
+      <Table />
 
     </>
 );
