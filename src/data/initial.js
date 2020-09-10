@@ -1,5 +1,5 @@
 const initial = {
-    saved: false,
+    savedSettings: false,
     player1Name: "",
     player2Name: "",
     winningScore: 21,

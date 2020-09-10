@@ -1,8 +1,6 @@
 import React from 'react';
 
-const Table = ({
-    history,        
-}) => (
+const Table = ({ history }) => (
         <table className="table table-bordered table-striped">
             <thead className="thead-dark">
                 <tr >
@@ -19,7 +17,7 @@ const Table = ({
                            { i + 1 }
                         </td>
                         <td>
-                           { item.player_1.won ? "Player 1" : "Player 2" }
+                           { item.player_1.won ? item.player_1.name : item.player_2.name }
                         </td>
                         <td className={ item.player_1.score > item.player_2.score ? "table-success" : "table-danger"}>
                            { item.player_1.score }

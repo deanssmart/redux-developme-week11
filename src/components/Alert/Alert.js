@@ -2,10 +2,12 @@ import React from 'react';
 
 const Alert = ({
     winner,
+    player1Name,
+    player2Name,
 }) => (
     <>
         {winner > 0 ? 
-        <h2 className="alert alert-success">Player { winner } wins!</h2> : null 
+        <h2 className="alert alert-success">{winner === 1 ? player1Name : player2Name } wins!</h2> : null 
         }
     </>
 );

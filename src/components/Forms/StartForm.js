@@ -31,18 +31,18 @@ class StartForm extends Component {
             alternate,
         } = this.state;
 
+        return player1Name === "" || player2Name === "" ? null : 
+
         this.props.handleSave(
             player1Name, 
             player2Name, 
             winningScore, 
             alternate,
             );
-    
-        this.setState({ player1Name: "", player2Name: "" });
+
     };
 
     render() {
-        const { children, saved } = this.props;
         const { 
             player1Name, 
             player2Name, 
@@ -50,7 +50,7 @@ class StartForm extends Component {
             alternate, 
         } = this.state;
 
-        return saved ? children : (
+        return (
             <form onSubmit={ this.handleSubmit } className="container">
                 <Input 
                     label="Player 1 Name"
@@ -58,6 +58,7 @@ class StartForm extends Component {
                     type="text"
                     value={ player1Name }
                     handleChange={ (e) => this.handleChange(e, "player1Name") }
+                    required
                 />
                 <Input 
                     label="Player 2 Name"
@@ -65,6 +66,7 @@ class StartForm extends Component {
                     type="text"
                     value={ player2Name }
                     handleChange={ (e) => this.handleChange(e, "player2Name") }
+                    required
                 />
                 <Input 
                     label="Winning Score"

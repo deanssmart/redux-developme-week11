@@ -41,11 +41,13 @@ const history = (state) => {
     ...state,
     history: player1Wins(state) || player2Wins(state) ? [...state.history, {
       player_1: {
+        name: state.player1Name,
         score: state.player1,
         won: player1Wins(state),
       },
       
       player_2:{
+        name: state.player2Name,
         score: state.player2,
         won: player2Wins(state),
       },
@@ -65,13 +67,15 @@ const saveSettings = (state, {
   player2Name, 
   winningScore, 
   alternate,
-  saved: true,
+  savedSettings: true,
 });
 
 const reset = (state) => {
   return {
     ...initial,
-    saved: false,
+    savedSettings: false,
+    player1Name: state.player1Name, 
+    player2Name: state.player2Name,
     history: state.history,
   };  
 };

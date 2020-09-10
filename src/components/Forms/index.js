@@ -7,14 +7,14 @@ const mapStateToProps = ({
     player2Name, 
     winningScore, 
     alternate,
-    saved,
+    savedSettings,
 }) => {
     return {
         player1Name, 
         player2Name, 
         winningScore, 
         alternate, 
-        saved,
+        savedSettings,
     };
 };
 
@@ -24,14 +24,12 @@ const mapDispatchToProps = dispatch => {
             player1Name, 
             player2Name, 
             winningScore, 
-            alternate,
-            saved,
+            alternate,       
             ) => dispatch(save(
                 player1Name, 
                 player2Name, 
                 winningScore, 
-                alternate,
-                saved,
+                alternate,             
                 )),
     };
 };
