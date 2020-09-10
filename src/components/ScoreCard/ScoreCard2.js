@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ScoreCard from './ScoreCard';
-import { score } from '../../data/actions';
+import { score } from '../../data/actions/state';
 
 const mapStateToProps = ({ player2Name, player2, player1Serving, winner }) => ({
         player: player2Name,

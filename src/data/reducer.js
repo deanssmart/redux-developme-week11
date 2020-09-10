@@ -83,7 +83,7 @@ const reset = (state) => {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "SAVE": return saveSettings(state, action);
+    case "NEW_GAME": return saveSettings(state, action);
     case "SCORE": return history(winner(server(score(state, action))));
     case "RESET": return reset(state);
     default: return state;
