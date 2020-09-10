@@ -5,37 +5,25 @@ import ScoreCard2 from './ScoreCard/ScoreCard2';
 import ResetButton from './Buttons/ResetButton';
 import Alert from './Alert';
 import Table from './Table';
+import StartForm from './Forms';
 
 
-const App = ({ 
-    scoreP1,
-    handleP1,
-    scoreP2, 
-    handleP2,
-    handleReset,
-    player1Serving,
-    winner,
-    p1Score,
-}) => (
+const App = () => (
     <>
-      <Header />
-
-      <div className="row mb-4">
-        <ScoreCard1 />
-        <ScoreCard2 />
-      </div>
-
-      <Alert />
-
-      <hr />
-
-      <ResetButton buttonClass="btn btn-danger"/>
-
-      <hr />
-
-      <Table />
-
-    </>
+        <Header />
+        <StartForm>
+          <div className="row mb-4">
+            <ScoreCard1 />
+            <ScoreCard2 />
+          </div>
+          <Alert />
+          <hr />
+          <ResetButton buttonClass="btn btn-danger"/>
+          <hr />
+          <Table />
+        </StartForm>
+      </>
+    
 );
 
 export default App;

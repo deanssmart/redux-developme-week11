@@ -1,7 +1,8 @@
 import initial from './initial';
+// import { save } from './actions';
 
 const alternate = (state) => {
-  return (state.player1 >= 20 && state.player2 >= 20) ? 2 : 5;  
+  return (state.player1 >= 20 && state.player2 >= 20) ? 2 : state.alternate;  
 };
 
 const server = (state) => {
@@ -21,11 +22,11 @@ const score = (state, { player }) => {
 };
 
 const player1Wins = (state) => {
-  return state.player1 >= 21 && state.player1 - state.player2 >= 2;
+  return state.player1 >= state.winningScore && state.player1 - state.player2 >= 2;
 };
 
 const player2Wins = (state) => {
-  return state.player2 >= 21 && state.player2 - state.player1 >= 2;
+  return state.player2 >= state.winningScore && state.player2 - state.player1 >= 2;
 };
 
 const winner = (state) => {
@@ -53,13 +54,34 @@ const history = (state) => {
   };
 };
 
+const saveSettings = (state, {
+  player1Name, 
+  player2Name, 
+  winningScore, 
+  alternate, 
+}) => ({ 
+  ...state,            
+  player1Name, 
+  player2Name, 
+  winningScore, 
+  alternate,
+  saved: true,
+});
+
+const reset = (state) => {
+  return {
+    ...initial,
+    saved: false,
+    history: state.history,
+  };  
+};
+
+
 const reducer = (state, action) => {
   switch (action.type) {
+    case "SAVE": return saveSettings(state, action);
     case "SCORE": return history(winner(server(score(state, action))));
-    case "RESET": return {
-      ...initial,
-      history: state.history,
-    };
+    case "RESET": return reset(state);
     default: return state;
   };
 };
