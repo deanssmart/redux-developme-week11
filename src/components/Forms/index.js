@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import StartForm from './StartForm';
-import { newGame } from '../../data/actions/state';
+// import { newGame } from '../../data/actions/state';
+import { postNewGame } from '../../data/actions/api';
 
 const mapStateToProps = ({
     player1Name, 
@@ -25,12 +26,12 @@ const mapDispatchToProps = dispatch => {
             player2Name, 
             winningScore, 
             alternate,       
-            ) => dispatch(newGame(
+            ) => dispatch(postNewGame(
                 player1Name, 
                 player2Name, 
                 winningScore, 
                 alternate,             
-                )),
+                ))
     };
 };
 
