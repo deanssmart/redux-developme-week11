@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import ScoreCard from './ScoreCard';
+import { score } from '../../data/actions';
 
 const mapStateToProps = ({ player1Name, player1, player1Serving, winner }) => ({
         player: player1Name,
@@ -10,8 +11,8 @@ const mapStateToProps = ({ player1Name, player1, player1Serving, winner }) => ({
 
 const mapDispatchToProps = dispatch => {
     return {
-        handlePlayer: () => dispatch({ type: "SCORE", player: "player1" }),
-    }
-}
+        handlePlayer: () => dispatch(score("player1")),
+    };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScoreCard);
