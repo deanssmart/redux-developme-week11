@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ScoreCard from './ScoreCard';
-import { score } from '../../data/actions/state';
+import { patchScore } from '../../data/actions/api';
 
 const mapStateToProps = ({ player2Name, player2, player1Serving, winner }) => ({
         player: player2Name,
@@ -11,7 +11,7 @@ const mapStateToProps = ({ player2Name, player2, player1Serving, winner }) => ({
 
     const mapDispatchToProps = dispatch => {
         return {
-            handlePlayer: () => dispatch(score("player2")),
+            handlePlayer: () => dispatch(patchScore(2)),
         };
     };
 

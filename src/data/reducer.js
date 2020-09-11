@@ -14,10 +14,11 @@ const server = (state) => {
   };
 };
 
-const score = (state, { player }) => {
+const score = (state, { player1, player2 }) => {
   return { 
     ...state, 
-    [player]: state[player] + 1, 
+    player1,
+    player2,
   };
 };
 
