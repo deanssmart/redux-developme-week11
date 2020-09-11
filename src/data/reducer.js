@@ -57,12 +57,14 @@ const history = (state) => {
 };
 
 const saveSettings = (state, {
+  gameID,
   player1Name, 
   player2Name, 
   winningScore, 
   alternate, 
 }) => ({ 
-  ...state,            
+  ...state,   
+  gameID,         
   player1Name, 
   player2Name, 
   winningScore, 

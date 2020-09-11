@@ -15,6 +15,7 @@ export const postNewGame = (
               change_serve: alternate,  
             }).then(({ data }) => {
                 dispatch(newGame(
+                    data.data.id,
                     data.data.player_1.name,
                     data.data.player_2.name,
                     data.data.winning_score,

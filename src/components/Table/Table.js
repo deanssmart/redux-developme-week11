@@ -11,7 +11,7 @@ const Table = ({ history }) => (
                 </tr>
             </thead>
             <tbody>
-                { history.length === 0 ? <td colspan="4" className="text-center">No Games Played</td> : history.map((item, i) => (
+                { history.length === 0 ? <tr><td colSpan="4" className="text-center">No Games Played</td></tr> : history.map((item, i) => (
                     <tr key={ i }>
                        <td>
                            { i + 1 }

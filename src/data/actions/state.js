@@ -1,5 +1,6 @@
-export const newGame = (player1Name, player2Name, winningScore, alternate) => {
+export const newGame = (gameID, player1Name, player2Name, winningScore, alternate) => {
     return {
+        gameID,
         player1Name, 
         player2Name, 
         winningScore: +winningScore, 

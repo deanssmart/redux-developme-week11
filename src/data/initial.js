@@ -1,4 +1,5 @@
 const initial = {
+    gameID: 0,
     savedSettings: false,
     player1Name: "",
     player2Name: "",
