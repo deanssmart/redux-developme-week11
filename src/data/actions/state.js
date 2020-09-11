@@ -1,10 +1,16 @@
-export const newGame = (gameID, player1Name, player2Name, winningScore, alternate) => {
+export const newGame = ({
+    id,
+    player_1,
+    player_2,
+    winning_score,
+    change_serve,
+}) => {
     return {
-        gameID,
-        player1Name, 
-        player2Name, 
-        winningScore: +winningScore, 
-        alternate: +alternate,
+        gameID: id,
+        player1Name: player_1.name, 
+        player2Name: player_2.name, 
+        winningScore: winning_score, 
+        alternate: change_serve,
         type: "NEW_GAME",
     };
 };

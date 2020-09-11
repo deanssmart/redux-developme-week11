@@ -13,14 +13,6 @@ export const postNewGame = (
               player_2: player2Name,
               winning_score: winningScore,
               change_serve: alternate,  
-            }).then(({ data }) => {
-                dispatch(newGame(
-                    data.data.id,
-                    data.data.player_1.name,
-                    data.data.player_2.name,
-                    data.data.winning_score,
-                    data.data.change_serve
-                ));
-            });
+            }).then(({ data }) => dispatch(newGame(data.data)));
     };
 };
