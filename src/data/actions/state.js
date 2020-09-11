@@ -25,10 +25,10 @@ export const score = ({
     player_1,
     player_2,
 }) => {
-    // console.log(player_1);
     return {
         player1: player_1.score, 
-        player2: player_2.score,         
+        player2: player_2.score,
+        player1Serving: player_1.serving,                 
         type: "SCORE",
     };
 };

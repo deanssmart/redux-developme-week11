@@ -1,16 +1,14 @@
 import initial from './initial';
 // import { save } from './actions';
 
-const alternate = (state) => {
-  return (state.player1 >= 20 && state.player2 >= 20) ? 2 : state.alternate;  
-};
+// const alternate = (state) => {
+//   return (state.player1 >= 20 && state.player2 >= 20) ? 2 : state.alternate;  
+// };
 
-const server = (state) => {
-  const total = state.player1 + state.player2;
-
+const server = (state, { player1Serving }) => {
   return { 
     ...state, 
-    player1Serving: total % alternate(state) === 0 ? !state.player1Serving : state.player1Serving
+    player1Serving,
   };
 };
 
@@ -87,7 +85,7 @@ const reset = (state) => {
 const reducer = (state, action) => {
   switch (action.type) {
     case "NEW_GAME": return saveSettings(state, action);
-    case "SCORE": return history(winner(server(score(state, action))));
+    case "SCORE": return history(winner(server(score(state, action), action)));
     case "RESET": return reset(state);
     default: return state;
   };
